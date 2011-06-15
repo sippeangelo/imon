@@ -1,0 +1,40 @@
+﻿<Ui xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="globals.lua"/>
+	<Script file="imon.lua"/>
+	<Script file="config.lua"/>
+
+	<Script file="libs\LibStub\LibStub.lua"/>
+	<Script file="libs\CallbackHandler-1.0\CallbackHandler-1.0.lua"/>
+	<Include file="libs\LibSharedMedia-3.0\lib.xml"/>
+	<Include file="libs\oUF\oUF.xml"/>
+	<Script file="libs\oUF_Experience\oUF_Experience.lua"/>
+	<Script file="libs\oUF_CombatFeedback\oUF_CombatFeedback.lua"/>
+	
+	<Script file="scripts\reload.lua"/>
+	<Script file="scripts\camel.lua"/>
+	<Script file="scripts\dbm.lua"/>
+	<Script file="scripts\buffcancel.lua"/>
+	<Script file="scripts\lootwhore.lua"/>
+	<Script file="scripts\victorysounds.lua"/>
+	<Script file="scripts\readycheck.lua"/>
+	<Script file="scripts\rolecheck.lua"/>
+	
+	<Script file="actionbars\hide.lua"/>
+	<Script file="actionbars\panels.lua"/>
+	<Script file="actionbars\style.lua"/>
+	<Script file="actionbars\bar1.lua"/>
+	<Script file="actionbars\bar2.lua"/>
+	<Script file="actionbars\bar3.lua"/>
+	<Script file="actionbars\bar4.lua"/>
+	<Script file="actionbars\bar5.lua"/>
+	<Script file="actionbars\bar6.lua"/>
+	<Script file="actionbars\bar7.lua"/>
+	<!--<Script file="actionbars\actionbars_old.lua"/>-->
+	
+	<Script file="unitframes\modules\health.lua"/>
+	
+	<Script file="unitframes\tags.lua"/>
+	<Script file="unitframes\player.lua"/>
+	<Script file="unitframes\pet.lua"/>
+	<Script file="unitframes\raid.lua"/>
+</Ui>

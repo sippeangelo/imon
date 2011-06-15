@@ -1,0 +1,8 @@
+﻿## Interface: 40100
+## Author: Pälsboll
+## Version: 0
+## Title: imon
+## Notes: 
+## X-oUF: imonoUF
+
+imon.xml
