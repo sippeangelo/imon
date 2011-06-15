@@ -83,9 +83,11 @@ local function Status(unit)
 		end
 		
 		if (UnitIsDeadOrGhost(unit)) then
-			return ("Dead (%s)"):format(FormatDuration(GetTime() - timers.dead[guid]))
+			--return ("Dead (%s)"):format(FormatDuration(GetTime() - timers.dead[guid]))
+			return "Dead"
 		elseif (UnitIsGhost(unit)) then
-			return ("Ghost (%s)"):format(FormatDuration(GetTime() - timers.dead[guid]))
+			--return ("Ghost (%s)"):format(FormatDuration(GetTime() - timers.dead[guid]))
+			return "Ghost"
 		end
 	elseif (timers.dead[guid]) then
 		timers.dead[guid] = nil
@@ -149,16 +151,17 @@ oUF.Tags["imon:name"] = function(unit)
 		name = override
 	end
 	
-	if (afk) then
+	--[[if (afk) then
 		if (timers.afk[guid] == nil) then
 			timers.afk[guid] = GetTime()
 		end
 	elseif (timers.afk[guid]) then
 		timers.afk[guid] = nil
-	end	
+	end]]--
 	
 	if (afk) then
-		return ("%s <Away %s>"):format(name, FormatDuration(GetTime() - timers.afk[guid] + 5 * 60))
+		--return ("%s <Away %s>"):format(name, FormatDuration(GetTime() - timers.afk[guid] + 5 * 60))
+		return ("%s <Away>"):format(name)
 	else
 		return name
 	end
