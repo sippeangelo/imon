@@ -13,7 +13,25 @@ local POWER_HEIGHT = 9
 local SPACING_HEIGHT = 5
 local AURA_SIZE = (HEALTH_HEIGHT + POWER_HEIGHT - 1) / 2
 
+
+
 imon.oUF.Raid = {}
+
+-- Unit menu
+imon.oUF.Raid.menu = function(self)
+	local unit = self.unit:sub(1, -2)
+	local cunit = self.unit:gsub("(.)", string.upper, 1)
+	
+	-- Swap menus in vehicle
+	if self == oUF_player and cunit=="Vehicle" then cunit = "Player" end
+	if self == oUF_pet and cunit=="Player" then cunit = "Pet" end
+
+	if(unit == "party" or unit == "partypet") then
+		ToggleDropDownMenu(1, nil, _G["PartyMemberFrame"..self.id.."DropDown"], "cursor", 0, 0)
+	elseif(_G[cunit.."FrameDropDown"]) then
+		ToggleDropDownMenu(1, nil, _G[cunit.."FrameDropDown"], "cursor", 0, 0)
+	end
+end
 
 imon.oUF.Raid.Health_Override = function(self, event, unit, powerType)
 	if(self.unit ~= unit or (event == 'UNIT_POWER' and powerType ~= 'HAPPINESS')) then return end
@@ -58,8 +76,8 @@ imon.oUF.Raid.Health_Override = function(self, event, unit, powerType)
 end
 
 imon.oUF.SharedParty = function(self, unit)
-self.colors.power["MANA"] = { 68/255, 138/255, 231/255 }
-	self.menu = imon.oUF.menu
+	self.colors.power["MANA"] = { 68/255, 138/255, 231/255 }
+	self.menu = imon.oUF.Raid.menu
 	self:RegisterForClicks("AnyDown")
 	self:SetScript("OnEnter", UnitFrame_OnEnter)
 	self:SetScript("OnLeave", UnitFrame_OnLeave)
