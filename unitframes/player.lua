@@ -474,11 +474,11 @@ imon.oUF.Shared = function(self, unit)
 			info:SetFontObject("imon_text")
 			info:SetPoint("LEFT", bar, "LEFT", 4, 0)
 			self:Tag(info, "[imon:info]")
-		elseif (unit == "player" and select(2, UnitClass("player")) == "WARLOCK") then
+		elseif (unit == "player") then
 			local info = bar:CreateFontString(nil, "Overlay")
 			info:SetFontObject("imon_text")
 			info:SetPoint("LEFT", bar, "LEFT", 4, 0)
-			self:Tag(info, "[imon:soulshards]")		
+			self:Tag(info, "[imon:specialpower]")		
 		end
 		
 	self.Power = bar	

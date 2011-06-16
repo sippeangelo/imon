@@ -148,7 +148,7 @@ oUF.Tags["imon:name"] = function(unit)
 	
 	local override = cf["unitframes"]["health"]["name_overrides"][name]
 	if (override) then
-		name = override
+		name = override 
 	end
 	
 	--[[if (afk) then
@@ -274,18 +274,6 @@ oUF.Tags["imon:info"] = function(unit)
 	local cc = ClassColor(unit)
 	
 	return ("|cff%02x%02x%02x%s|r %s |cff%02x%02x%02x%s|r"):format(dc.r, dc.g, dc.b, level, race or "", cc.r, cc.g, cc.b, class or "")
-end
-
-oUF.TagEvents["imon:soulshards"] = "UNIT_POWER"
-oUF.Tags["imon:soulshards"] = function(unit)
-	local shards = UnitPower("player", SPELL_POWER_SOUL_SHARDS)
-	
-	local text = "shards"
-	if (shards == 1) then
-		text = "shard"
-	end
-	
-	return ("%d %s"):format(shards, text)
 end
 
 oUF.TagEvents["imon:specialpower"] = "UNIT_POWER"
