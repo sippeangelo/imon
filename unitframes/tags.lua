@@ -124,10 +124,10 @@ oUF.Tags["imon:missingbuffs"] = function(unit)
 	end
 	
 	if (class == "PALADIN") then
-		if (not UnitAura(unit, "Blessing of Might") and not UnitAura(unit, "Mark of the Wild")) then
-			return "BoM"
-		elseif (UnitAura(unit, "Blessing of Kings")) then
+		if (not UnitAura(unit, "Blessing of Kings") and not UnitAura(unit, "Mark of the Wild")) then
 			return "BoK"
+		elseif (not UnitAura(unit, "Blessing of Might")) then
+			return "BoM"
 		end
 	end
 	
