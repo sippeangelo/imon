@@ -166,7 +166,7 @@ imon.oUF.SharedParty = function(self, unit)
 	local name = hpBar:CreateFontString(nil, "OVERLAY")
 	name:SetFontObject("imon_text")
 	name:SetJustifyH("LEFT")
-	name:SetPoint("LEFT", role, "RIGHT", 4, 0)
+	name:SetPoint("LEFT", hpBar, "LEFT", 4, 0)
 	name.frequentUpdates = 0.1
 	self:Tag(name, "[imon:name]")
 	
@@ -191,13 +191,11 @@ imon.oUF.SharedParty = function(self, unit)
 	f:RegisterEvent("PLAYER_ROLES_ASSIGNED")
 	f:RegisterEvent("PARTY_MEMBERS_CHANGED")
 	f:SetScript("OnEvent", function(self, event, ...)
-		if (event == "PLAYER_ROLES_ASSIGNED" or event == "PARTY_MEMBERS_CHANGED") then
-			if (role:IsVisible()) then
-				role:SetPoint("LEFT", hpBar, "LEFT", 4, 0)
-				name:SetPoint("LEFT", role, "RIGHT", 4, 0)
-			else
-				name:SetPoint("LEFT", hpBar, "LEFT", 4, 0)
-			end
+		if (role:IsVisible()) then
+			role:SetPoint("LEFT", hpBar, "LEFT", 4, 0)
+			name:SetPoint("LEFT", role, "RIGHT", 4, 0)
+		else
+			name:SetPoint("LEFT", hpBar, "LEFT", 4, 0)
 		end
 	end)
 end
