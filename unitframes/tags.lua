@@ -119,7 +119,7 @@ oUF.Tags["imon:missingbuffs"] = function(unit)
 		end
 	end
 	
-	if (class == "PRIEST" and not UnitAura(unit, "Power Word: Fortitude")) then
+	if (class == "PRIEST" and not UnitAura(unit, "Power Word: Fortitude") and not UnitAura(unit, "Blood Pact")) then
 		return "PW:F"
 	end
 	

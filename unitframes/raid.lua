@@ -151,7 +151,6 @@ imon.oUF.SharedParty = function(self, unit)
 	self.Debuffs.PostCreateIcon = function(debuffs, button)
 		-- UGLY BORDERS
 		button.icon:SetTexCoord(.08, .92, .08, .92)
-		
 		-- Reverse cooldown spiral
 		button.cd:SetReverse(true)
 	end
