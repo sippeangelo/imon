@@ -255,7 +255,18 @@ local tagStrings = {
 		end
 	end]],
 
-
+	['happiness'] = [[function(u)
+		if(UnitIsUnit(u, 'pet')) then
+			local happiness = GetPetHappiness()
+			if(happiness == 1) then
+				return ":<"
+			elseif(happiness == 2) then
+				return ":|"
+			elseif(happiness == 3) then
+				return ":D"
+			end
+		end
+	end]],
 
 	['pereclipse'] = [[function(u)
 		local m = UnitPowerMax('player', SPELL_POWER_ECLIPSE)
@@ -336,6 +347,7 @@ local tagEvents = {
 	["maxpp"]               = 'UNIT_MAXPOWER',
 	["missingpp"]           = 'UNIT_MAXPOWER UNIT_POWER',
 	["perpp"]               = 'UNIT_MAXPOWER UNIT_POWER',
+	['happiness']           = 'UNIT_POWER',
 	["offline"]             = "UNIT_HEALTH UNIT_CONNECTION",
 	["status"]              = "UNIT_HEALTH PLAYER_UPDATE_RESTING UNIT_CONNECTION",
 	["pereclipse"]          = 'UNIT_POWER',

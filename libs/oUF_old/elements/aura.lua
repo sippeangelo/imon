@@ -215,7 +215,14 @@ local Update = function(self, event, unit)
 
 		local numBuffs = auras.numBuffs or 32
 		local numDebuffs = auras.numDebuffs or 40
-		local max = numBuffs + numDebuffs
+		
+		-- WHYYY!!!		
+		local max
+		if (auras.numTotal) then
+			max = auras.numTotal
+		else
+			max = numBuffs + numDebuffs
+		end
 
 		local visibleBuffs = filterIcons(unit, auras, auras.buffFilter or auras.filter or 'HELPFUL', numBuffs, nil, 0, true)
 		auras.visibleBuffs = visibleBuffs
