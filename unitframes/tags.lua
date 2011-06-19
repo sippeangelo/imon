@@ -204,6 +204,10 @@ oUF.Tags["imon:group:health"] = function(unit)
 		if (min ~= max) then
 			return ("|cffff%02x%02x%d|r"):format(col, col, min - max)
 		end
+		
+		if (min == max and UnitAura(unit, "Power Word: Shield") or UnitAura(unit, "Divine Aegis")) then
+			return "|cff00FF00+|r"
+		end
 	end
 end
 
