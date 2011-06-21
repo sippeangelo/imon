@@ -104,7 +104,7 @@ oUF.Tags["imon:missingbuffs"] = function(unit)
 	local unitclass = select(2, UnitClass(unit))
 	
 	if (UnitIsDeadOrGhost(unit) or not UnitIsConnected(unit) or not UnitIsVisible(unit)) then
-		return
+		return ""
 	end
 	
 	if (class == "DRUID" and not UnitAura(unit, "Mark of the Wild")) then
@@ -126,7 +126,7 @@ oUF.Tags["imon:missingbuffs"] = function(unit)
 	if (class == "PALADIN") then
 		if (not UnitAura(unit, "Blessing of Kings") and not UnitAura(unit, "Mark of the Wild")) then
 			return "BoK"
-		elseif (not UnitAura(unit, "Blessing of Might")) then
+		elseif (not UnitAura(unit, "Blessing of Might") and select(8, UnitAura(unit, "Blessing of Kings")) ~= "player") then
 			return "BoM"
 		end
 	end
