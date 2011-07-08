@@ -118,6 +118,7 @@ cf["scripts"] = {
 				"goldenageofvideo.mp3",	
 				"numanuma.mp3",
 				"caramelldansen.mp3",
+				"captainkirk.mp3",
 			},
 		},
 		
