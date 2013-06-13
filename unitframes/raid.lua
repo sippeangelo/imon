@@ -115,9 +115,40 @@ imon.oUF.SharedParty = function(self, unit)
 	
 	local hpBG = hpBar:CreateTexture(nil, "BORDER")
 	hpBG:SetAllPoints()
-	hpBG:SetTexture(BAR_TEXTURE)	
+	hpBG:SetTexture(BAR_TEXTURE)
 	hpBar.bg = hpBG
 	hpBar.bg.multiplier = 0.5
+	
+		-- Heal Prediction
+		local mhpb = CreateFrame("StatusBar", nil, self)
+		mhpb:SetPoint("TOPLEFT", self.Health:GetStatusBarTexture(), "TOPRIGHT", 0, 0)
+		mhpb:SetPoint("BOTTOMLEFT", self.Health:GetStatusBarTexture(), "BOTTOMRIGHT", 0, 0)
+		mhpb:SetWidth(BAR_WIDTH)
+		mhpb:SetStatusBarTexture(BAR_TEXTURE)
+		mhpb:SetStatusBarColor(0, 1, 0.5, 0.75)
+
+		local ohpb = CreateFrame("StatusBar", nil, self)
+		ohpb:SetPoint("TOPLEFT", mhpb:GetStatusBarTexture(), "TOPRIGHT", 0, 0)
+		ohpb:SetPoint("BOTTOMLEFT", mhpb:GetStatusBarTexture(), "BOTTOMRIGHT", 0, 0)
+		mhpb:SetWidth(BAR_WIDTH)
+		mhpb:SetStatusBarTexture(BAR_TEXTURE)
+		ohpb:SetStatusBarColor(0, 1, 0, 0.25)
+
+		self.HealPrediction = {
+			myBar = mhpb,
+			otherBar = ohpb,
+			maxOverflow = 1.05,
+		}
+		
+	local unitauras = CreateFrame("Frame", nil, self)
+	unitauras:SetAllPoints(hpBar)
+	
+		--unitauras.Icon = unitauras:CreateTexture(nil, "OVERLAY")
+		--unitauras.Icon:SetSize(20, 20)
+		--unitauras.Icon:SetPoint("CENTER", unitauras, "CENTER")
+		--unitauras.Icon:SetTexture([[Interface\Icons\Spell_Holy_PowerWordShield]])
+		
+	self.UnitAuras = unitauras
 	
 	-- Power bar
 	local powBar = CreateFrame("StatusBar", nil, self)
@@ -203,7 +234,7 @@ oUF:RegisterStyle("imonRaid", imon.oUF.SharedParty)
 oUF:Factory(function(self)
 	oUF:SetActiveStyle("imonRaid")
 	
-	local raid = self:SpawnHeader("oUF_imonRaid", nil, "raid,party", --"custom [@raid26,exists] hide;show"
+	local raid = self:SpawnHeader("oUF_imonRaid", nil, "custom [@raid11,exists] hide; show", --"raid,party" --"custom [@raid26,exists] hide;show"
 		"showParty", true, 
 		"showPlayer", true, 
 		"showRaid", true, 
