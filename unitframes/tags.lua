@@ -103,7 +103,7 @@ oUF.Tags["imon:missingbuffs"] = function(unit)
 	local class = select(2, UnitClass("player"))
 	local unitclass = select(2, UnitClass(unit))
 	
-	if (UnitIsDeadOrGhost(unit) or not UnitIsConnected(unit) or not UnitIsVisible(unit)) then
+	if (UnitIsDeadOrGhost(unit) or not UnitIsConnected(unit) or not UnitInRange(unit)) then
 		return ""
 	end
 	
