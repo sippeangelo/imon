@@ -119,6 +119,9 @@ cf["scripts"] = {
 				"numanuma.mp3",
 				"caramelldansen.mp3",
 				"captainkirk.mp3",
+				"barrelroll.mp3",
+				"nightofknights.mp3",
+				"yeahyeahwowwow.mp3",
 			},
 		},
 		
