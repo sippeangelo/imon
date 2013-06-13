@@ -592,7 +592,7 @@ imon.oUF.Shared = function(self, unit)
 		bar:SetStatusBarTexture(BAR_TEXTURE)
 		
 			-- Spell icon
-			local icon = bar:CreateTexture(nil, "OVERLAY")
+			local icon = bar:CreateTexture(nil, "OVERLAY", nil, 7)
 			icon:SetSize(CASTBAR_HEIGHT, CASTBAR_HEIGHT)
 			icon:SetPoint("TOPLEFT", Castbar, "TOPLEFT", 0, 0)
 			icon:SetTexCoord(.08, .92, .08, .92)
@@ -657,6 +657,24 @@ imon.oUF.Shared = function(self, unit)
 		bar.Time = time
 		
 	self.Castbar = bar
+	
+	-------------------------------------------
+	-- SWING TIMER
+	-------------------------------------------
+	-- Container
+	local Swing = CreateFrame("Frame", nil, self)
+	Swing:SetSize(BAR_WIDTH, 1)
+	Swing:SetPoint("BOTTOM", Castbar, "BOTTOM", 0, 0)
+	Swing:SetFrameLevel(Castbar:GetFrameLevel() + 1)
+	
+		-- Bar
+		local bar = CreateFrame("Frame", nil, Swing)
+		bar:SetAllPoints()
+		bar.texture = BAR_TEXTURE
+		bar.color = {1, 1, 1, 0.8}
+		bar.colorBG = {0, 0, 0, 0}
+		
+	self.Swing = bar
 	
 	-------------------------------------------
 	-- ALTERNATE POWER

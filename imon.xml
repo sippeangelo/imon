@@ -9,6 +9,8 @@
 	<Include file="libs\oUF\oUF.xml"/>
 	<Script file="libs\oUF_Experience\oUF_Experience.lua"/>
 	<Script file="libs\oUF_CombatFeedback\oUF_CombatFeedback.lua"/>
+	<Script file="libs\oUF_Swing\oUF_Swing.lua"/>
+	<Script file="libs\oUF_UnitAuras\oUF_UnitAuras.lua"/>
 	
 	<Script file="scripts\reload.lua"/>
 	<Script file="scripts\camel.lua"/>
